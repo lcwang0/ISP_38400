@@ -122,7 +122,7 @@ while(1)
               trig_IAPGO;
               vo8temp = uart_rcvbuf[count];
               if(IAPFD!=vo8temp)
-              while(1);                          
+              while(1);
               if (CHPCON==0x43)              //if error flag set, program error stop ISP
               while(1);
               
@@ -206,15 +206,15 @@ END_2:
                     {
                       READ_CONFIG();
                       Package_checksum();
-                      uart_txbuf[8]=CONF0;  
-                      uart_txbuf[9]=CONF1;  
-                      uart_txbuf[10]=CONF2;  
-                      uart_txbuf[11]=0xff;  
-                      uart_txbuf[12]=CONF4;  
-                      uart_txbuf[13]=0xff;  
-                      uart_txbuf[14]=0xff;            
+                      uart_txbuf[8]=CONF0;
+                      uart_txbuf[9]=CONF1;
+                      uart_txbuf[10]=CONF2;
+                      uart_txbuf[11]=0xff;
+                      uart_txbuf[12]=CONF4;
+                      uart_txbuf[13]=0xff;
+                      uart_txbuf[14]=0xff;
                       uart_txbuf[15]=0xff;
-                      Send_64byte_To_UART1();  
+                      Send_64byte_To_UART1();
                     break;
                     }
 
@@ -241,7 +241,7 @@ END_2:
                       IAPFD = recv_CONF1;
                       IAPAL = 0x01;
                       set_IAPTRG_IAPGO_WDCLR;
-                              IAPAL = 0x02;
+                      IAPAL = 0x02;
                       IAPFD = recv_CONF2;
                       set_IAPTRG_IAPGO_WDCLR;
                       IAPAL = 0x04;
@@ -258,13 +258,13 @@ END_2:
                       uart_txbuf[11]=0xff;  
                       uart_txbuf[12]=CONF4;  
                       uart_txbuf[13]=0xff;  
-                      uart_txbuf[14]=0xff;            
+                      uart_txbuf[14]=0xff;
                       uart_txbuf[15]=0xff;
                       Send_64byte_To_UART1();  
                       break;
                     }
             
-                    case CMD_UPDATE_APROM:            
+                    case CMD_UPDATE_APROM:
                     {
 //                      set_CHPCON_IAPEN;
                       set_IAPUEN_APUEN;
@@ -293,7 +293,7 @@ END_2:
                         IAPAH = (flash_address>>8)&0xff;
                         IAPFD=uart_rcvbuf[count];
                         clr_CHPCON_IAPFF;
-                        set_IAPTRG_IAPGO_WDCLR;                              
+                        set_IAPTRG_IAPGO_WDCLR;
       
                         IAPCN = BYTE_READ_AP;                //program byte verify
                         trig_IAPGO;
@@ -333,9 +333,9 @@ END_1:
                     g_timer0Over=0;
                   }
               }
-            }									
+            }
                   bUartDataReady = FALSE;
-                  bufhead = 0;            
+                  bufhead = 0;
                   EA=1;
               }
       //For connect timer out  

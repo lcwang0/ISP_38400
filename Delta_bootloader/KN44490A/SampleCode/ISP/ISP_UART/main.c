@@ -37,9 +37,9 @@ void SYS_Init(void)
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init I/O Multi-function                                                                                 */
     /*---------------------------------------------------------------------------------------------------------*/
-    /* Set PB multi-function pins for UART0 TXD=PB.2 and RXD=PB.3 */  // For DELTA 
-    SYS->GPB_MFPL &= ~(SYS_GPB_MFPL_PB2MFP_Msk | SYS_GPB_MFPL_PB3MFP_Msk);
-    SYS->GPB_MFPL |= (SYS_GPB_MFPL_PB2MFP_UART0_TXD | SYS_GPB_MFPL_PB3MFP_UART0_RXD);
+    /* Set PB multi-function pins for UART0 RXD=PB.14 and TXD=PB.15 */  // For DELTA KN9994A
+    SYS->GPB_MFPH &= ~(SYS_GPB_MFPH_PB14MFP_Msk | SYS_GPB_MFPH_PB15MFP_Msk);
+    SYS->GPB_MFPH |= (SYS_GPB_MFPH_PB14MFP_UART0_RXD | SYS_GPB_MFPH_PB15MFP_UART0_TXD);
 }
 
 /*---------------------------------------------------------------------------------------------------------*/
